@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Map Editor V2</title>
+        <!--<link rel="shortcut icon" type="image/png" href="favicon.png"/>-->
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+    </head>
+    <body>
+        <input id="file-input-import" accept=".bpm" type="file">
+        <div id="left-canvas"></div>
+
+        <!-- Menu -->
+        <div id="right-menu" data-state="startup">
+            <span id="menu-title">Map Editor V2</span>
+
+            <!-- Startup -->
+            <div style="display: none;" id="startup-controls">
+                <button id="startup-create">New empty map</button>
+                <button id="startup-import">Import file</button><br><br>
+                <button id="startup-load-last">Load last map</button>
+                <button id="startup-load-orikaru">Load from Orikaru</button>
+            </div>
+            <div id="startup-loading">
+                Loading scripts...
+            </div>
+
+            <!-- Editing -->
+            <div id="editing-controls" style="display: none">
+                <!-- Tools -->
+                <hr>
+                <span onClick="$('#current-tool-menu').slideToggle();" class="menu-header" data-slide-target="current-tool-menu">🔧 Current tool: <i><span id="current-tool">tile-editor</span></i></span>
+                <div id="current-tool-menu">
+                    <span style="color:#888">Press [H] to display the help</span>
+                </div>
+                <hr>
+
+                <!-- Tile picker -->
+                <span onClick="$('#tilepicker-canvas').slideToggle();" class="menu-header"> 🗺 Tileset</span>
+                <canvas id="tilepicker-canvas"></canvas>
+                <hr>
+                <span onClick="$('#layers').slideToggle();" class="menu-header">🍔 Layers</span>
+                <div id="layers">
+                    <div id="editing-layers"></div>
+                    <div style="height: 30px;">
+                        <button id="create-layer" onClick="layerManager.createLayer();">New layer</button>
+                    </div>
+                </div>
+                <hr>
+
+                <span onClick="$('#entity').slideToggle();" class="menu-header">🏃 Entities</span>
+                <div id="entity">
+                    <select id="entity-type-list"></select>
+                    <span id="entity-property-type-name"></span>
+                    <table id="entity-properties">
+
+                    </table>
+                </div>
+                <hr>
+                <!-- Map settings -->
+                <span onClick="$('#map-settings').slideToggle();" class="menu-header">🛠 Map settings</span>
+                <div id="map-settings">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td><input id="menu-settings-name" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Columns</td>
+                            <td><input id="menu-settings-cols" type="number" min=1 max=1000></td>
+                        </tr>
+                        <tr>
+                            <td>Rows</td>
+                            <td><input id="menu-settings-rows" type="number" min=1 max=1000></td>
+                        </tr>
+                        <tr>
+                            <td>Image Root</td>
+                            <td><input id="menu-settings-imgroot" type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+                <hr>
+
+                <!-- Entities (disabled because not finished) -->
+                <div style="display: none">
+
+                </div>
+                <div class="menu-header" style="color: #666; font-size: 0.9em;">Made by Chokapik & Blatoy - 2016-2017</div>
+            </div>
+        </div>
+
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+        </script>
+
+        <script src="../blapika-game-framework/src/engine.js"></script>
+
+        <script src="src/main.js"></script>
+
+        <!--<script src="scripts/config/paths.js"></script>
+        <script src="scripts/config/config.js"></script>
+        <script src="../global/libs/utils.js"></script>
+        <script src="../global/libs/lz-string.min.js"></script>
+        <script src="../global/common/tileset.js"></script>
+        <script src="../global/common/map.js"></script>
+        <script src="scripts/core/tile-picker.js"></script>
+
+        <script src="scripts/core/menu.js"></script>
+        <script src="scripts/core/map-editor.js"></script>-->
+    </body>
+</html>

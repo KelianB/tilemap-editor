@@ -1,0 +1,41 @@
+{
+    "entityTypes": {
+        "prop": {
+            "x": {"type": "number", "default": 0},
+            "y": {"type": "number", "default": 0},
+            "w": {"type": "number", "default": 128},
+            "h": {"type": "number", "default": 128},
+            "image": {"type": "assetBrowser", "default": "colin"}
+        },
+        "spawn-point": {
+            "w": {"type": "number", "default": 32},
+            "h": {"type": "number", "default": 32}
+        },
+        "merchant": {
+            "w": {"type": "number", "default": 32},
+            "h": {"type": "number", "default": 64},
+            
+            "merchant-type": {
+                "type": "select-text",
+                "values":  ["miscellaneous", "weaponsmith", "armorsmith"], 
+                "default": "miscellaneous"
+            },
+            "max-rarity": {
+                "type": "select-text",
+                "values":  ["fine", "rare", "exotic", "legendary"], 
+                "default": "fine"
+            },
+            "merchant-gold": {
+                "type": "number-range",
+                "min": 10,
+                "max": 100,
+                "default": 10
+            }
+        }
+    },
+    "layersAttributes": [],
+    "mapAttributes": [],
+    "values": {
+        "merchant-item": ["apple", "..."]
+    }
+}

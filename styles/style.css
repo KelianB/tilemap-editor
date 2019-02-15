@@ -1,0 +1,323 @@
+#right-menu {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+body {
+    overflow: hidden;
+    font-family: "Calibri", "Helvetica", sans-serif;
+    margin: 0;
+    background-color: rgb(70, 70, 70);
+}
+
+button, select {
+    font-family: "Calibri", "Helvetica", sans-serif;
+    color: white;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+}
+button {
+    padding: 5px 10px;
+    box-shadow: 0px 0px 1px rgb(60, 140, 200);
+    background-color: rgb(60, 140, 200);
+}
+button:hover {
+    background-color: rgb(50, 120, 180);
+}
+button.red {
+    background-color: rgb(200, 80, 60);
+    box-shadow: 0px 0px 1px rgb(200, 80, 60);
+}
+button.red:hover {
+    background-color: rgb(180, 60, 50);
+}
+
+select {
+    width: 100%;
+    padding: 1px 4px;
+    -moz-appearance:none;
+    background-color: rgb(60, 60, 60);
+    box-shadow: 0px 0px 1px rgb(30, 30, 30);
+}
+select.white {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 1px rgb(30, 30, 30);
+    color: rgb(20, 20, 20);
+}
+input[type=number] {
+    width: 50px;
+}
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px dashed rgb(60, 60, 60);
+}
+
+.popup {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    border: 1px dashed rgb(70, 70, 70);
+    background-color: rgb(50, 50, 50);
+    color:white;
+    z-index: 100;
+    padding: 5px;
+    border-radius: 1px;
+    overflow: auto;
+}
+
+/* --- Menu --- */
+
+#right-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgb(40, 40, 40);
+    box-shadow: 0px 0px 3px #666;
+    box-sizing: border-box;
+    color: rgb(250,250,250);
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+a:visited {
+    color: #888;
+}
+
+a:hover {
+    color: #999;
+}
+
+
+#right-menu span {
+    color: rgb(250, 250, 250);
+}
+
+/* Startup mode */
+#right-menu[data-state="startup"] {
+    padding: 36px 30px;
+    width: 100%;
+}
+
+#right-menu[data-state="startup"] #menu-title {
+    font-size: 64px;
+    font-weight: bold;
+    text-shadow: 0px 0px 1px #aaa;
+    margin-left: calc(50% - 184px); /* Use this instead of text-align so the transition applies */
+}
+
+#startup-controls {
+    text-align: center;
+    margin-top: 20%;
+}
+
+#startup-controls button {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+}
+#left-canvas {
+    position: fixed;
+    width: 79%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#file-input {
+    display: none;
+}
+
+/* Editing mode */
+#right-menu[data-state="editing"] {
+    resize: both;
+    padding: 10px 12px;
+    width: 21%;
+    transition: all 0.6s ease-in-out;
+    right: 0;
+}
+
+#right-menu[data-state="editing"] #menu-title {
+    font-size: 28px;
+    transition: all 0.6s ease-in-out;
+}
+
+.menu-header {
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: block;
+}
+
+#editing-controls table, #editing-controls table tbody {
+    bottom: 0;
+    margin-top: 1px;
+    width: 100%;
+}
+
+input[type="text"], input[type="number"] {
+    width: calc(100% - 7px);
+    border: none;
+    background-color: rgb(60, 60, 60);
+    box-shadow: 0px 0px 1px rgb(30, 30, 30);
+    padding: 2px 5px;
+    color: white;
+}
+/*
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor: pointer;
+    display: block;
+    width: 8px;
+    color: rgb(240, 240,240);
+    background-color: rgb(180, 80, 80);  
+    text-align: center;
+    position: relative;
+}    
+input[type=number]:hover::-webkit-inner-spin-button { 
+    background-color: rgb(80, 80, 80);  
+    padding: 4px;
+    position: relative;
+    border-radius: 4px;
+}
+*/
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
+#entity-properties {
+    max-height: 140px;
+    overflow: auto;
+}
+
+/* Canvases */
+#tilepicker-canvas {
+    cursor: pointer;
+    border: 1px dashed rgb(60, 60, 60);
+    background: repeating-linear-gradient(
+        45deg,
+        rgb(70,70,70),
+        rgb(70,70,70) 8px,
+        rgb(80,80,80) 8px,
+        rgb(80,80,80) 16px
+    );
+}
+
+#main-canvas {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#editing-layers {
+    position: relative;
+}
+
+.table-layer {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px dashed rgb(60, 60, 60);
+    height: 60px;
+    vertical-align: middle;
+    margin: 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.table-layer tr {
+    vertical-align: middle;
+    margin: 0;
+}
+
+.table-layer td {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-collapse: collapse;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.table-layer .arrow {
+    color: rgb(120, 120, 120) !important;
+    cursor: pointer;
+}
+.table-layer .arrow:hover {
+    color: rgb(160, 160, 160) !important;
+}
+
+.table-layer .tileset {
+    height: 45px;
+    width: 45px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.selected-layer {
+    background-color: #444;
+}
+
+#editing-layers {
+    max-height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tileset-image {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border: 1px dashed rgb(60, 60, 60);
+    margin-right: 5px;
+}
+
+.dialog-box {
+    position: fixed;
+    background-color: rgb(40, 40, 40);
+    box-shadow: 0px 0px 3px #666;
+    box-sizing: border-box;
+    color: rgb(250,250,250);
+    padding: 10px;
+    overflow: auto;
+}
+
+.transparent-fullscreen {
+    background-color: rgba(40, 40, 40, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+#startup-loading {
+    text-align: center;
+    margin-top: 20%;
+}
+
+.disabled {
+    background-color: #666;
+    cursor: default;
+}
+
+.disabled:hover {
+    background-color: #666;
+    cursor: default;
+}
